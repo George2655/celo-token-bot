@@ -69,7 +69,7 @@ def price_monitor():
     while True:
         price = get_token_price()
         if price:
-            message = f"${price:.8f} Pact"
+            message = f"${price:.8f}"
             print(message)
             users = load_users()
             for user in users:
