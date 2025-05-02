@@ -82,7 +82,7 @@ def price_monitor():
 def run_flask():
     app.run(host="0.0.0.0", port=5000)
 
-if __name__ == "__main__":
-    threading.Thread(target=price_monitor).start()
-    run_flask()
+threading.Thread(target=price_monitor, daemon=True).start()
+app.run(host="0.0.0.0", port=10000)
+
 "Add app.py"
