@@ -59,9 +59,9 @@ def webhook():
         if chat_id not in users:
             users.append(chat_id)
             save_users(users)
-            send_telegram_message(chat_id, "✅ Ви підписались на сповіщення про ціну токена.")
+            send_telegram_message(chat_id, "✅ Хто красавчик?")
         else:
-            send_telegram_message(chat_id, "🔁 Ви вже підписані.")
+            send_telegram_message(chat_id, "🔁 Ти красавчик")
     return "OK"
 
 # Фоновий цикл
@@ -69,7 +69,7 @@ def price_monitor():
     while True:
         price = get_token_price()
         if price:
-            message = f"Поточна ціна токена: ${price:.8f}"
+            message = f"${price:.8f} Pact"
             print(message)
             users = load_users()
             for user in users:
